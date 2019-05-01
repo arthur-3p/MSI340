@@ -1,0 +1,17 @@
+{
+  "name": "showcasewebsite",
+  "version": "1.0.0",
+  "description": "interactive site for manipulating audio and visuals",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Arthur Wilson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "osc": "^2.2.4",
+    "socket.io": "^2.2.0"
+  }
+}

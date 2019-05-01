@@ -1,0 +1,35 @@
+body {
+  background-color: #323232;
+  text-align: center;
+}
+
+h1 {
+  font-family: helvetica, sans-serif;
+  font-size: 26px;
+  color: #C9C9CA;
+  margin: auto;
+  text-align:center;
+}
+
+p1 {
+  font-family: helvetica, sans-serif;
+  font-size: 26px;
+  color: white;
+  margin: auto;
+  text-align:center;
+}
+
+@keyframes color {
+  90% {
+    color: white;
+  }
+}
+
+.slidecontainer {
+  color: yellow;
+  animation-name: color;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+
+}
