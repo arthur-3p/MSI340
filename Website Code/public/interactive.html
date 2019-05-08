@@ -1,0 +1,74 @@
+<!-- Interactive webpage, which is sending the values of each
+slider through a websocket back to the server to be averaged and forwarded. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script language="javascript" type="text/javascript" src="scripts/socketio.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/socketConnect.js"></script>
+  </head>
+  <h1>Interact</h1>
+  <body>
+    <div>
+    <h1>Move these sliders to interact with what is seen and heard.</h1>
+  </div>
+
+    <!-- Slider1 HTML-->
+    <div class="slidecontainer">
+      <input type="range" min="0" max="100" value=50 class="slider" id="slider1">
+      <p>Value: <span id="value1"></span></p>
+    </div>
+    <!-- Slider 1 script, adopting and returning client ID from server -->
+    <script>
+      const slider1 = document.getElementById("slider1");
+      let output1 = document.getElementById("value1");
+      output1.innerHTML = slider1.value;
+      let thisID = ""; //Empty ID string
+      socket.on('youID', receivedID);
+
+      //return ID and value1parsed
+      slider1.oninput= function() {
+        output1.innerHTML = this.value;
+        socket.emit("slider1/"+thisID, this.value);
+        console.log("slider1/"+thisID, this.value);
+      };
+    </script>
+
+    <!-- Slider2 -->
+    <div class="slidecontainer">
+      <input type="range" min="0" max="100" value=50 class="slider" id="slider2">
+      <p>Value: <span id="value2"></span></p>
+    </div>
+
+    <!-- Slider 2 script, same as slider 1 script -->
+    <script>
+      const slider2 = document.getElementById("slider2");
+      let output2 = document.getElementById("value2");
+      output2.innerHTML = slider2.value;
+
+      slider2.oninput= function() {
+        output2.innerHTML = this.value;
+        socket.emit("slider2/"+thisID, this.value);
+        console.log("slider2/"+thisID, this.value);
+      };
+    </script>
+
+    <!-- Slider3 -->
+    <div class="slidecontainer">
+      <input type="range" min="0" max="100" value=50 class="slider" id="slider3">
+      <p>Value: <span id="value3"></span></p>
+    </div>
+
+    <!-- Slider 3 script, the same again -->
+    <script>
+      const slider3 = document.getElementById("slider3");
+      let output3 = document.getElementById("value3");
+      output3.innerHTML = slider3.value;
+
+      slider3.oninput= function() {
+        output3.innerHTML = this.value;
+        socket.emit("slider3/"+thisID, this.value);
+        console.log("slider3/"+thisID, this.value);
+      };
+    </script>
